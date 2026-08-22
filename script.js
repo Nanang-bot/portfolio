@@ -1,0 +1,474 @@
+// Elements
+const menu = document.getElementById("menu");
+const closeButton = document.getElementById("close-mobile");
+const nav = document.getElementById("nav-mobile");
+const navLinks = document.querySelectorAll(".nav-link");
+
+const themeToggle = document.getElementById("theme-toggle");
+const themeIcon = themeToggle.querySelector("i");
+const langToggle = document.getElementById("lang-toggle");
+
+// --- MOBILE MENU LOGIC ---
+menu.addEventListener("click", () => {
+  nav.classList.add("show");
+  document.body.style.overflow = "hidden";
+});
+
+closeButton.addEventListener("click", () => {
+  nav.classList.remove("show");
+  document.body.style.overflow = "auto";
+});
+
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    nav.classList.remove("show");
+    document.body.style.overflow = "auto";
+  });
+});
+
+// --- THEME SWITCHING LOGIC ---
+const currentTheme = localStorage.getItem("theme") || "dark";
+if (currentTheme === "light") {
+  document.body.classList.add("light-mode");
+  if (themeIcon) {
+    themeIcon.classList.replace('bxs-moon', 'bxs-sun');
+  }
+}
+
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("light-mode");
+  const isLight = document.body.classList.contains("light-mode");
+  
+  if (themeIcon) {
+    if (isLight) {
+      themeIcon.classList.replace('bxs-moon', 'bxs-sun');
+    } else {
+      themeIcon.classList.replace('bxs-sun', 'bxs-moon');
+    }
+  }
+  
+  localStorage.setItem("theme", isLight ? "light" : "dark");
+});
+
+// --- LANGUAGE SWITCHING LOGIC ---
+let currentLang = localStorage.getItem("lang") || "id";
+
+const translations = {
+  update() {
+    const elements = document.querySelectorAll("[data-en]");
+    elements.forEach(el => {
+      const text = el.getAttribute(`data-${currentLang}`);
+      if (!text) return;
+      if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+        el.setAttribute("placeholder", text);
+      } else {
+        // Use innerHTML so HTML tags (<br>, <span>, etc.) render correctly
+        el.innerHTML = text;
+        if (el.hasAttribute("data-text")) {
+          el.setAttribute("data-text", text);
+        }
+      }
+    });
+    
+    // Update Flag Icon: show the OTHER flag to switch to
+    const flagImg = langToggle.querySelector("img");
+    if (currentLang === "en") {
+      flagImg.setAttribute("src", "https://flagcdn.com/w40/id.png");
+      flagImg.setAttribute("alt", "ID");
+    } else {
+      flagImg.setAttribute("src", "https://flagcdn.com/w40/gb.png");
+      flagImg.setAttribute("alt", "EN");
+    }
+  }
+};
+
+// Initialize language
+translations.update();
+
+langToggle.addEventListener("click", () => {
+  currentLang = currentLang === "en" ? "id" : "en";
+  localStorage.setItem("lang", currentLang);
+  translations.update();
+});
+
+// --- SWIPER SLIDER LOGIC ---
+window.addEventListener('load', () => {
+  const swiper = new Swiper('.projects-slider', {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    centeredSlides: false,
+    loop: true,
+    speed: 800,
+    autoplay: {
+      delay: 3500,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+      dynamicBullets: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 30,
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 40,
+      },
+    },
+  });
+});
+
+// --- BLOG ARTICLE MODAL POPUP LOGIC ---
+const articlesData = {
+  1: {
+    tag: { id: "Laravel & Alpine.js", en: "Laravel & Alpine.js" },
+    tagClass: "tag-laravel",
+    title: {
+      id: "Membangun Aplikasi Web Skala Institusi dengan Laravel & Alpine.js",
+      en: "Building Institutional Web Apps with Laravel & Alpine.js"
+    },
+    body: {
+      id: `
+        <p>Dalam merancang sistem informasi institusi seperti <strong>Sistem Layanan Penjaminan Mutu</strong> dan <strong>Profil Kampus</strong>, efisiensi, keamanan, serta kemudahan integrasi antarmuka menjadi kunci utama.</p>
+        
+        <h3>1. Arsitektur Clean &amp; Modular</h3>
+        <p>Menggunakan framework <strong>Laravel</strong> memungkinkan pembuatan struktur backend yang rapi berkat fitur Eloquent ORM, Service Layer, dan Middleware otentikasi bertingkat untuk memisahkan hak akses Admin, Dosen, dan Staf.</p>
+        
+        <h3>2. Interaktivitas Ringan dengan Alpine.js</h3>
+        <p>Daripada menggunakan SPA framework yang relatif berat untuk sistem dokumen institusi, <strong>Alpine.js</strong> dikombinasikan dengan Laravel Blade memberikan reaktivitas penuh langsung di dalam template tanpa mengorbankan performa load halaman.</p>
+
+        <pre><code>// Contoh Komponen Dynamic Upload & Filter Alpine.js
+&lt;div x-data="{ search: '', category: 'all' }"&gt;
+  &lt;input type="text" x-model="search" placeholder="Cari Dokumen Mutu..." /&gt;
+&lt;/div&gt;</code></pre>
+        
+        <h3>3. Hasil &amp; Dampak Implementasi</h3>
+        <p>Sistem ini berhasil memotong waktu proses pelaporan dokumen mutu secara signifikan dan mempermudah pengarsipan dokumen akreditasi secara digital dan terpusat.</p>
+      `,
+      en: `
+        <p>When designing institutional information systems such as <strong>Quality Assurance Services</strong> and <strong>Campus Profiles</strong>, efficiency, security, and interface integration are key priorities.</p>
+        
+        <h3>1. Clean &amp; Modular Architecture</h3>
+        <p>Utilizing <strong>Laravel</strong> allows building a clean backend structure using Eloquent ORM, Service Layers, and multi-tier Authentication Middleware to isolate access rights between Admin, Faculty, and Staff.</p>
+        
+        <h3>2. Lightweight Interactivity with Alpine.js</h3>
+        <p>Instead of heavy SPA frameworks, pairing <strong>Alpine.js</strong> with Laravel Blade delivers full component reactivity right within Blade templates without sacrificing page load performance.</p>
+
+        <pre><code>// Example Dynamic Search Component with Alpine.js
+&lt;div x-data="{ search: '', category: 'all' }"&gt;
+  &lt;input type="text" x-model="search" placeholder="Search QA Documents..." /&gt;
+&lt;/div&gt;</code></pre>
+        
+        <h3>3. Results &amp; Impact</h3>
+        <p>The implementation significantly reduced institutional quality document reporting times and enabled centralized digital archiving for accreditation audits.</p>
+      `
+    }
+  },
+  2: {
+    tag: { id: "MikroTik & Networking", en: "MikroTik & Networking" },
+    tagClass: "tag-network",
+    title: {
+      id: "Optimasi Jaringan Kampus: Manajemen Bandwidth MikroTik dengan Metode PCQ",
+      en: "Campus Network Optimization: MikroTik Bandwidth Management using PCQ"
+    },
+    body: {
+      id: `
+        <p>Mengelola bandwidth total 750 Mbps untuk ratusan pengguna di lingkungan laboratorium dan gedung kampus membutuhkan distribusi trafik yang adil agar tidak ada pengguna yang menghabiskan alokasi bandwidth.</p>
+        
+        <h3>1. Mengapa Memilih Per Connection Queue (PCQ)?</h3>
+        <p>Metode <strong>PCQ (Per Connection Queue)</strong> di RouterOS MikroTik memungkinkan pembagian bandwidth dinamis yang secara otomatis membagi kuota secara merata kepada setiap perangkat yang aktif dalam antrean.</p>
+        
+        <h3>2. Pembagian Alokasi Dosen vs Mahasiswa</h3>
+        <p>Dengan skrip DHCP Leases dinamis dan Queue Trees, alokasi bandwidth dipisahkan berdasarkan segmentasi IP:</p>
+        <ul>
+          <li><strong>Segment Dosen / Staf:</strong> Prioritas tinggi (High Priority Queue) untuk mendukung kelancaran administrasi &amp; perkuliahan.</li>
+          <li><strong>Segment Mahasiswa / Lab:</strong> Equal Share PCQ untuk mencegah bottleneck akibat aktivitas download berlebih.</li>
+        </ul>
+
+        <pre><code># Konfigurasi PCQ Rate MikroTik CLI
+/queue type
+add name="PCQ_Download" kind=pcq pcq-rate=5M pcq-classifier=dst-address
+add name="PCQ_Upload" kind=pcq pcq-rate=2M pcq-classifier=src-address</code></pre>
+        
+        <h3>3. Pemantauan Real-Time dengan Torch</h3>
+        <p>Penggunaan fitur pemantauan <em>Torch</em> di MikroTik membantu mendeteksi lonjakan trafik dan mengidentifikasi IP yang terindikasi menggunakan aplikasi bandwidth-heavy secara real-time.</p>
+      `,
+      en: `
+        <p>Managing a total 750 Mbps bandwidth for hundreds of concurrent users across campus laboratories requires fair traffic distribution to prevent network starvation.</p>
+        
+        <h3>1. Why Per Connection Queue (PCQ)?</h3>
+        <p><strong>PCQ (Per Connection Queue)</strong> in MikroTik RouterOS dynamically redistributes available bandwidth equally among all active client streams inside a queue.</p>
+        
+        <h3>2. Faculty vs Student Allocation Segmentation</h3>
+        <p>Using dynamic DHCP leases scripts and Queue Trees, traffic is segmented based on IP subnets:</p>
+        <ul>
+          <li><strong>Faculty / Staff Segment:</strong> High Priority Queue to ensure uninterrupted academic administration &amp; lectures.</li>
+          <li><strong>Student / Lab Segment:</strong> Equal-share PCQ to prevent bottlenecks caused by heavy background downloads.</li>
+        </ul>
+
+        <pre><code># MikroTik CLI PCQ Rate Configuration
+/queue type
+add name="PCQ_Download" kind=pcq pcq-rate=5M pcq-classifier=dst-address
+add name="PCQ_Upload" kind=pcq pcq-rate=2M pcq-classifier=src-address</code></pre>
+        
+        <h3>3. Real-time Traffic Monitoring via Torch</h3>
+        <p>Utilizing MikroTik's <em>Torch</em> tool enables real-time packet inspection to identify IP spikes and isolate bandwidth-heavy connections.</p>
+      `
+    }
+  },
+  3: {
+    tag: { id: "Linux & VPS Admin", en: "Linux & VPS Admin" },
+    tagClass: "tag-linux",
+    title: {
+      id: "Panduan Praktis Deployment Aplikasi Web ke VPS Linux",
+      en: "Practical Guide to Deploying Web Applications to Linux VPS"
+    },
+    body: {
+      id: `
+        <p>Memindahkan aplikasi web dari lingkungan lokal (Localhost) ke server Virtual Private Server (VPS) berspesifikasi produksi membutuhkan tahapan konfigurasi yang aman dan terstruktur.</p>
+        
+        <h3>1. Persiapan Server &amp; Pengamanan Awal</h3>
+        <p>Langkah awal meliputi update repositori Linux (Ubuntu/Debian), pembuat akun sudoer khusus, mengaktifkan UFW Firewall (membuka port 80, 443, SSH), serta mengonfigurasi autentikasi SSH Key publik/privat.</p>
+        
+        <h3>2. Instalasi Web Server (Nginx) &amp; Database (MySQL)</h3>
+        <p>Mengonfigurasi <strong>Nginx</strong> sebagai Reverse Proxy untuk melayani request HTTP/HTTPS dengan performa tinggi, diikuti penataan basis data MySQL dan pengaturan user privilese yang aman.</p>
+
+        <pre><code># Menghubungkan Domain Akademik .ac.id & SSL Let's Encrypt
+sudo apt install certbot python3-certbot-nginx
+sudo certbot --nginx -d poltek-cendrawasih.ac.id</code></pre>
+        
+        <h3>3. Manajemen Domain (.ac.id) &amp; SSL</h3>
+        <p>Mengoordinasikan A-Record DNS institusi menuju IP publik VPS dan memasang sertifikat SSL TLS gratis dari Let's Encrypt dengan perpanjangan otomatis (*auto-renewal*).</p>
+      `,
+      en: `
+        <p>Migrating web applications from a localhost environment to a production Linux VPS requires a structured, secure deployment workflow.</p>
+        
+        <h3>1. Server Preparation &amp; Hardening</h3>
+        <p>Initial steps include updating Linux package repositories, creating dedicated sudo users, configuring UFW Firewall rules (ports 80, 443, SSH), and enforcing SSH Key authentication.</p>
+        
+        <h3>2. Nginx Reverse Proxy &amp; MySQL Setup</h3>
+        <p>Configuring <strong>Nginx</strong> as a high-performance Reverse Proxy to handle HTTP/HTTPS traffic, followed by MySQL database creation and user privilege isolation.</p>
+
+        <pre><code># Linking Academic Domain .ac.id & Certbot SSL
+sudo apt install certbot python3-certbot-nginx
+sudo certbot --nginx -d poltek-cendrawasih.ac.id</code></pre>
+        
+        <h3>3. Domain Management (.ac.id) &amp; Free SSL</h3>
+        <p>Mapping institutional DNS A-Records to the VPS public IP address and installing Let's Encrypt SSL/TLS certificates with automated renewal crons.</p>
+      `
+    }
+  }
+};
+
+const blogModal = document.getElementById("blog-modal");
+const blogModalClose = document.getElementById("blog-modal-close");
+const modalTag = document.getElementById("modal-tag");
+const modalTitle = document.getElementById("modal-title");
+const modalBody = document.getElementById("modal-body");
+
+function openArticleModal(articleId) {
+  const data = articlesData[articleId];
+  if (!data) return;
+
+  const lang = localStorage.getItem("lang") || "id";
+
+  if (modalTag) {
+    modalTag.className = `tech-tag ${data.tagClass}`;
+    modalTag.textContent = data.tag[lang] || data.tag["id"];
+  }
+  if (modalTitle) {
+    modalTitle.textContent = data.title[lang] || data.title["id"];
+  }
+  if (modalBody) {
+    modalBody.innerHTML = data.body[lang] || data.body["id"];
+  }
+
+  if (blogModal) {
+    blogModal.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+}
+
+function closeArticleModal() {
+  if (blogModal) {
+    blogModal.classList.remove("active");
+    document.body.style.overflow = "auto";
+  }
+}
+
+// Event Delegation for Opening Blog Modal Popup
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".btn-read-more");
+  if (btn) {
+    e.preventDefault();
+    const articleId = btn.getAttribute("data-article");
+    if (articleId) openArticleModal(articleId);
+    return;
+  }
+
+  const card = e.target.closest(".blog-card");
+  if (card) {
+    const cardBtn = card.querySelector(".btn-read-more");
+    if (cardBtn) {
+      const articleId = cardBtn.getAttribute("data-article");
+      if (articleId) openArticleModal(articleId);
+    }
+  }
+});
+
+if (blogModalClose) {
+  blogModalClose.addEventListener("click", closeArticleModal);
+}
+
+if (blogModal) {
+  blogModal.addEventListener("click", (e) => {
+    if (e.target === blogModal) {
+      closeArticleModal();
+    }
+  });
+}
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && blogModal && blogModal.classList.contains("active")) {
+    closeArticleModal();
+  }
+});
+
+// --- CONTACT FORM SUBMISSION LOGIC ---
+const contactForm = document.querySelector(".contact-form-new");
+
+function showToast(message, type = "success") {
+  let toast = document.getElementById("custom-toast");
+  if (!toast) {
+    toast = document.createElement("div");
+    toast.id = "custom-toast";
+    toast.className = "custom-toast";
+    document.body.appendChild(toast);
+  }
+
+  const iconClass = type === "success" ? "bx-check-circle" : "bx-error-circle";
+  toast.innerHTML = `<i class='bx ${iconClass}'></i><span>${message}</span>`;
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 4000);
+}
+
+if (contactForm) {
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById("contact-name").value.trim();
+    const email = document.getElementById("contact-email").value.trim();
+    const subject = document.getElementById("contact-subject").value.trim();
+    const message = document.getElementById("contact-message").value.trim();
+
+    if (!name || !email || !subject || !message) {
+      const errText = (typeof currentLang !== "undefined" && currentLang === "en") ? "Please fill in all fields." : "Harap isi semua kolom formulir.";
+      showToast(errText, "error");
+      return;
+    }
+
+    // Format WhatsApp Message
+    const formattedMsg = `Halo Nanang, perkenalkan saya *${name}* (${email}).%0A%0A*Subjek:* ${subject}%0A*Pesan:* ${message}`;
+    const waUrl = `https://wa.me/6285140778581?text=${formattedMsg}`;
+
+    // Show Success Toast
+    const successText = (typeof currentLang !== "undefined" && currentLang === "en")
+      ? "Message prepared! Opening WhatsApp..."
+      : "Pesan berhasil disiapkan! Mengalihkan ke WhatsApp...";
+    showToast(successText, "success");
+
+    // Open WhatsApp in new tab
+    setTimeout(() => {
+      window.open(waUrl, "_blank");
+      contactForm.reset();
+    }, 1000);
+  });
+}
+
+// --- CV QUICK PREVIEW MODAL LOGIC ---
+const cvModal = document.getElementById("cv-modal");
+const cvModalClose = document.getElementById("cv-modal-close");
+const btnOpenCv = document.getElementById("btn-open-cv");
+
+function openCvModal() {
+  if (cvModal) {
+    cvModal.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+}
+
+function closeCvModal() {
+  if (cvModal) {
+    cvModal.classList.remove("active");
+    document.body.style.overflow = "auto";
+  }
+}
+
+if (btnOpenCv) {
+  btnOpenCv.addEventListener("click", (e) => {
+    e.preventDefault();
+    openCvModal();
+  });
+}
+
+if (cvModalClose) {
+  cvModalClose.addEventListener("click", closeCvModal);
+}
+
+if (cvModal) {
+  cvModal.addEventListener("click", (e) => {
+    if (e.target === cvModal) {
+      closeCvModal();
+    }
+  });
+}
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && cvModal && cvModal.classList.contains("active")) {
+    closeCvModal();
+  }
+});
+
+// --- TOP SCROLL PROGRESS BAR & BACK TO TOP BUTTON LOGIC ---
+const scrollProgressBar = document.getElementById("scroll-progress");
+const backToTopBtn = document.getElementById("back-to-top");
+
+window.addEventListener("scroll", () => {
+  const scrollTop = window.scrollY || document.documentElement.scrollTop;
+  const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+
+  if (scrollProgressBar) {
+    scrollProgressBar.style.width = `${scrollPercent}%`;
+  }
+
+  if (backToTopBtn) {
+    if (scrollTop > 300) {
+      backToTopBtn.classList.add("show");
+    } else {
+      backToTopBtn.classList.remove("show");
+    }
+  }
+});
+
+if (backToTopBtn) {
+  backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+}
+
+
+

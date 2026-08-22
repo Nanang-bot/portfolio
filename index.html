@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <!-- Icon & Animation Libraries -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <!-- Swiper.js (Modern Slider) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <title>NANANG | Professional Portfolio</title>
+</head>
+
+<body>
+  <!-- Top Scroll Progress Bar -->
+  <div id="scroll-progress" class="scroll-progress-bar"></div>
+
+  <!-- Navigation Header (Exact Dribbble Style) -->
+  <header>
+    <div class="logo">
+      <a href="#home" class="logo-dribbble">
+        <span class="logo-triangle">▲</span>
+        <span class="logo-name">NANANG</span>
+        <span class="logo-dot">•</span>
+        <span class="logo-sub">Web Dev &amp; IT Admin</span>
+      </a>
+    </div>
+
+    <nav class="nav-desktop">
+      <a href="#home" data-en="Home" data-id="Beranda">Home</a>
+      <a href="#about" data-en="About Me" data-id="Tentang Saya">About Me</a>
+      <a href="#project" data-en="Projects" data-id="Proyek">Projects</a>
+      <a href="#blogs" data-en="Blogs" data-id="Blogs">Blogs</a>
+      <a href="#contact" data-en="Contact" data-id="Kontak">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <button id="theme-toggle" class="theme-toggle" title="Toggle Theme">
+        <i class='bx bxs-moon' id="theme-icon"></i>
+      </button>
+      <button id="lang-toggle" class="lang-toggle" title="Switch Language">
+        <img src="https://flagcdn.com/w40/id.png" alt="ID" width="24" />
+      </button>
+      <div id="menu" class="hamburger-menu">
+        <i class='bx bx-menu'></i>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="nav-mobile" class="mobile-nav">
+      <div id="close-mobile" class="close">
+        <i class='bx bx-x'></i>
+      </div>
+      <ul>
+        <li><a class="nav-link" href="#home" data-en="Home" data-id="Beranda">Home</a></li>
+        <li><a class="nav-link" href="#about" data-en="About Me" data-id="Tentang Saya">About Me</a></li>
+        <li><a class="nav-link" href="#project" data-en="Projects" data-id="Proyek">Projects</a></li>
+        <li><a class="nav-link" href="#blogs" data-en="Blogs" data-id="Blogs">Blogs</a></li>
+        <li><a class="nav-link" href="#contact" data-en="Contact" data-id="Kontak">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero Section (Exact Dribbble Reference Design) -->
+  <section class="hero" id="home">
+    <div class="container hero-container">
+      <!-- Left: Text Content -->
+      <div class="hero-text-side">
+        <h1 class="hero-title-dribbble" data-aos="fade-up" data-aos-delay="100">
+          <span data-en="Developing Web &amp; Modern IT Infrastructure" data-id="Mengembangkan Web &amp; Jaringan IT Modern">Mengembangkan Web &amp; Jaringan IT Modern</span>
+        </h1>
+        <p class="hero-description-dribbble" data-aos="fade-up" data-aos-delay="200"
+          data-en="Junior Web Developer and IT Administrator with practical experience in Laravel full-stack development and network infrastructure management."
+          data-id="Junior Web Developer dan IT Administrator berpengalaman praktis dalam pengembangan aplikasi web full-stack menggunakan Laravel dan manajemen infrastruktur jaringan.">
+          Junior Web Developer dan IT Administrator berpengalaman praktis dalam pengembangan aplikasi web full-stack menggunakan Laravel dan manajemen infrastruktur jaringan.
+        </p>
+        <div class="hero-action-dribbble" data-aos="fade-up" data-aos-delay="300">
+          <div class="btn-tour-wrapper">
+            <a href="#project" class="btn-tour">
+              <span data-en="Take A Tour >" data-id="Jelajahi Sekarang >">Take A Tour ></span>
+            </a>
+            <div class="btn-cyan-accent"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Single Photo Card -->
+      <div class="hero-img-side" data-aos="fade-left" data-aos-delay="200">
+        <div class="dribbble-img-wrapper">
+          <div class="ambient-blue-glow"></div>
+          <!-- Decorative blue backdrop -->
+          <div class="cyan-accent-card"></div>
+          <!-- Main Photo Card -->
+          <div class="dribbble-photo-card main-card">
+            <img src="assets/images/silhouette.png" alt="NANANG Silhouette" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Intro Dots Bar -->
+    <div class="hero-intro-bar" data-aos="fade-up" data-aos-delay="400">
+      <span class="intro-text">INTRO</span>
+      <div class="intro-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Dribbble Combined Skills + About Me + How I Work -->
+  <section id="about" class="dribbble-section-2">
+    <div class="container dribbble-s2-grid">
+      <!-- Left Column: 2x2 Circular Skill Cards Grid -->
+      <div class="skills-circular-grid" data-aos="fade-right">
+        <!-- Skill 1: Laravel / PHP -->
+        <div class="circle-skill-card">
+          <div class="circle-progress">
+            <svg viewBox="0 0 36 36" class="circular-chart">
+              <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <path class="circle-stroke stroke-88" stroke-dasharray="88, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <text x="18" y="20.35" class="circle-text">88%</text>
+            </svg>
+          </div>
+          <h4>Laravel / PHP</h4>
+          <p data-en="Full-stack web apps, REST API & academic systems" data-id="Aplikasi web full-stack, REST API & sistem akademik">Aplikasi web full-stack, REST API & sistem akademik</p>
+        </div>
+
+        <!-- Skill 2: MySQL / Git -->
+        <div class="circle-skill-card">
+          <div class="circle-progress">
+            <svg viewBox="0 0 36 36" class="circular-chart">
+              <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <path class="circle-stroke stroke-80" stroke-dasharray="80, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <text x="18" y="20.35" class="circle-text">80%</text>
+            </svg>
+          </div>
+          <h4>MySQL / Git</h4>
+          <p data-en="Relational database management & version control" data-id="Manajemen basis data relasional & kontrol versi kode">Manajemen basis data relasional & kontrol versi kode</p>
+        </div>
+
+        <!-- Skill 3: MikroTik / Linux -->
+        <div class="circle-skill-card">
+          <div class="circle-progress">
+            <svg viewBox="0 0 36 36" class="circular-chart">
+              <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <path class="circle-stroke stroke-85" stroke-dasharray="85, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <text x="18" y="20.35" class="circle-text">85%</text>
+            </svg>
+          </div>
+          <h4>MikroTik / Linux</h4>
+          <p data-en="PCQ bandwidth, VPS config & Linux server admin" data-id="Manajemen bandwidth PCQ, konfigurasi VPS & server Linux">Manajemen bandwidth PCQ, konfigurasi VPS & server Linux</p>
+        </div>
+
+        <!-- Skill 4: Alpine.js / JS / Blade -->
+        <div class="circle-skill-card">
+          <div class="circle-progress">
+            <svg viewBox="0 0 36 36" class="circular-chart">
+              <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <path class="circle-stroke stroke-75" stroke-dasharray="75, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <text x="18" y="20.35" class="circle-text">75%</text>
+            </svg>
+          </div>
+          <h4>Alpine.js / Blade</h4>
+          <p data-en="Frontend interactivity with Laravel Blade & Alpine.js" data-id="Interaktivitas frontend dengan Blade & Alpine.js Laravel">Interaktivitas frontend dengan Blade & Alpine.js Laravel</p>
+        </div>
+      </div>
+
+      <!-- Right Column: About Me & How I Work -->
+      <div class="about-work-side" data-aos="fade-left">
+        <!-- About Me Block -->
+        <div class="dribbble-about-block">
+          <h2 class="s2-title" data-en="About Me" data-id="Tentang Saya">Tentang Saya</h2>
+          <p data-en="I am a Junior Web Developer & IT Administrator experienced in building web applications with Laravel and managing institutional network infrastructure. I focus on reliable, efficient system performance and seamless integration of software development and server administration."
+             data-id="Saya adalah Junior Web Developer & IT Administrator yang berpengalaman dalam pengembangan aplikasi web menggunakan Laravel dan pengelolaan infrastruktur jaringan institusi. Berfokus pada performa sistem yang andal, efisien, serta penggabungan yang mulus antara pengembangan perangkat lunak dan administrasi server.">
+             Saya adalah Junior Web Developer & IT Administrator yang berpengalaman dalam pengembangan aplikasi web menggunakan Laravel dan pengelolaan infrastruktur jaringan institusi. Berfokus pada performa sistem yang andal, efisien, serta penggabungan yang mulus antara pengembangan perangkat lunak dan administrasi server.
+          </p>
+
+          <!-- Tech Tags -->
+          <div class="about-tech-tags">
+            <span class="tech-tag tag-laravel"><i class='bx bx-code-block'></i> Laravel</span>
+            <span class="tech-tag tag-mysql"><i class='bx bx-data'></i> MySQL</span>
+            <span class="tech-tag tag-network"><i class='bx bx-wifi'></i> MikroTik</span>
+            <span class="tech-tag tag-linux"><i class='bx bxl-tux'></i> Linux</span>
+          </div>
+        </div>
+
+        <!-- How I Work Block -->
+        <div class="dribbble-work-block" id="process">
+          <h2 class="s2-title" data-en="How I Work" data-id="Cara Kerja Saya">Cara Kerja Saya</h2>
+          <p data-en="A structured 4-step workflow to seamlessly integrate web application development and reliable server infrastructure management."
+             data-id="Alur kerja terstruktur 4 tahap untuk mengintegrasikan pengembangan aplikasi web dan pengelolaan infrastruktur server secara andal.">
+             Alur kerja terstruktur 4 tahap untuk mengintegrasikan pengembangan aplikasi web dan pengelolaan infrastruktur server secara andal.
+          </p>
+
+          <div class="work-steps-row">
+            <!-- Step 1: Analisis -->
+            <div class="work-step-item">
+              <div class="step-icon"><i class='bx bx-search-alt-2'></i></div>
+              <span class="step-label" data-en="Analysis" data-id="Analisis">Analisis</span>
+            </div>
+            <!-- Step 2: Perancangan -->
+            <div class="work-step-item">
+              <div class="step-icon"><i class='bx bx-git-branch'></i></div>
+              <span class="step-label" data-en="System Design" data-id="Perancangan">Perancangan</span>
+            </div>
+            <!-- Step 3: Coding -->
+            <div class="work-step-item">
+              <div class="step-icon"><i class='bx bx-code-alt'></i></div>
+              <span class="step-label" data-en="Development" data-id="Pengembangan">Pengembangan</span>
+            </div>
+            <!-- Step 4: Deployment -->
+            <div class="work-step-item">
+              <div class="step-icon"><i class='bx bx-cloud-upload'></i></div>
+              <span class="step-label" data-en="Deployment" data-id="Deployment">Deployment</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section (Some Of My Works - Dribbble Style) -->
+  <section id="project" class="works-section">
+    <div class="works-bg-dots"></div>
+    <div class="container works-grid-layout">
+      <!-- Left: Section heading + description + button -->
+      <div class="works-left" data-aos="fade-right">
+        <span class="works-eyebrow" data-en="Portfolio" data-id="Portofolio">Portofolio</span>
+        <h1 class="works-title">
+          <span data-en="Some Of My" data-id="Beberapa">Beberapa</span><br>
+          <span class="title-underline" data-en="Works" data-id="Karya Saya">Karya Saya</span>
+        </h1>
+        <p class="works-desc"
+           data-en="A collection of projects I have built — from full-stack web apps and UI/UX designs to network engineering solutions."
+           data-id="Kumpulan proyek yang pernah saya kerjakan — mulai dari web app full-stack, desain UI/UX, hingga solusi rekayasa jaringan.">
+           Kumpulan proyek yang pernah saya kerjakan — mulai dari web app full-stack, desain UI/UX, hingga solusi rekayasa jaringan.
+        </p>
+
+        <!-- Stats Row -->
+        <div class="works-stats-row">
+          <div class="works-stat">
+            <span class="stat-num">12+</span>
+            <span class="stat-label" data-en="Projects" data-id="Proyek">Proyek</span>
+          </div>
+          <div class="works-stat-divider"></div>
+          <div class="works-stat">
+            <span class="stat-num">3+</span>
+            <span class="stat-label" data-en="Years Exp." data-id="Tahun Pengalaman">Tahun Pengalaman</span>
+          </div>
+          <div class="works-stat-divider"></div>
+          <div class="works-stat">
+            <span class="stat-num">100%</span>
+            <span class="stat-label" data-en="Satisfaction" data-id="Kepuasan">Kepuasan</span>
+          </div>
+        </div>
+
+        <div class="works-btn-tour-wrapper">
+          <a href="javascript:void(0)" id="btn-open-cv" class="works-btn-tour">
+            <span data-en="View CV >" data-id="Lihat CV >">Lihat CV ></span>
+          </a>
+          <div class="works-btn-cyan"></div>
+        </div>
+      </div>
+
+      <!-- Right: Dribbble-Style Collage with Floating Badges -->
+      <div class="works-right" data-aos="fade-left">
+        <div class="works-collage-wrapper">
+
+          <!-- Badge 1: IT Infrastructure (Orange/Red) -->
+          <div class="works-badge-frame frame-portfolio">
+            <div class="works-badge badge-red">
+              <i class='bx bx-server'></i> <span data-en="IT Infrastructure" data-id="Infrastruktur IT">Infrastruktur IT</span>
+            </div>
+          </div>
+
+          <!-- Badge 2: Laravel Web App (Purple/Blue) -->
+          <div class="works-badge-frame frame-mobile">
+            <div class="works-badge badge-purple">
+              <i class='bx bx-code-block'></i> <span data-en="Laravel Web App" data-id="Laravel Web App">Laravel Web App</span>
+            </div>
+          </div>
+
+          <!-- Badge 3: Database & Web (Yellow) -->
+          <div class="works-badge-frame frame-assign">
+            <div class="works-badge badge-yellow">
+              <i class='bx bx-data'></i> <span data-en="Database &amp; Web" data-id="Database &amp; Web">Database &amp; Web</span>
+            </div>
+          </div>
+
+          <!-- Badge 4: Network & Security (Cyan) -->
+          <div class="works-badge-frame frame-webapp">
+            <div class="works-badge badge-cyan">
+              <i class='bx bx-shield-quarter'></i> <span data-en="Network &amp; Security" data-id="Jaringan &amp; Keamanan">Jaringan &amp; Keamanan</span>
+            </div>
+          </div>
+
+          <!-- Asymmetrical Photo Layout -->
+          <div class="collage-container">
+            <!-- Center Tall Main Card -->
+            <div class="collage-card card-tall">
+              <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=600" alt="Code Monitor" />
+            </div>
+
+            <!-- Top Right Column -->
+            <div class="collage-col col-top-right">
+              <div class="collage-card card-sm">
+                <img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&q=80&w=600" alt="Editor" />
+              </div>
+              <div class="collage-card card-sm">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=600" alt="Laptop" />
+              </div>
+            </div>
+
+            <!-- Bottom Left Card -->
+            <div class="collage-card card-bot-left">
+              <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&q=80&w=600" alt="Screen" />
+            </div>
+
+            <!-- Bottom Right Column -->
+            <div class="collage-col col-bot-right">
+              <div class="collage-card card-sm">
+                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=600" alt="Desk Light" />
+              </div>
+              <div class="collage-card card-sm">
+                <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&q=80&w=600" alt="Dark Code" />
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!-- Bottom Indicator: WORKS + dots -->
+    <div class="works-bottom-indicator">
+      <span class="works-label-text">WORKS</span>
+      <div class="works-dots">
+        <span class="wdot"></span>
+        <span class="wdot active"></span>
+        <span class="wdot"></span>
+        <span class="wdot"></span>
+        <span class="wdot"></span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Blogs Section (Dribbble Exact Reference Style) -->
+  <section id="blogs" class="blogs-section">
+    <div class="container">
+      <div class="blogs-header" data-aos="fade-up">
+        <h1 class="blogs-title" data-en="Blogs" data-id="Blog">Blogs</h1>
+      </div>
+      <!-- 3 Columns Dribbble-Style Blog Cards -->
+      <div class="blogs-grid" data-aos="fade-up" data-aos-delay="100">
+
+        <!-- Card 1: Laravel & Alpine.js -->
+        <div class="blog-card card-type-1">
+          <div class="blog-img">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=600" alt="Laravel Web Development" />
+          </div>
+          <div class="blog-content">
+            <h3 class="blog-card-title" data-en="Building Institutional Web Apps with Laravel &amp; Alpine.js" data-id="Membangun Aplikasi Web Skala Institusi dengan Laravel &amp; Alpine.js">Membangun Aplikasi Web Skala Institusi dengan Laravel &amp; Alpine.js</h3>
+            <p class="blog-card-desc" data-en="Explaining practical experience in designing and developing efficient academic information and quality assurance systems."
+               data-id="Menjelaskan pengalaman praktis dalam merancang dan mengembangkan sistem informasi akademik dan penjaminan mutu yang efisien.">
+               Menjelaskan pengalaman praktis dalam merancang dan mengembangkan sistem informasi akademik dan penjaminan mutu yang efisien.
+            </p>
+            <a href="javascript:void(0)" class="btn-read-more" data-article="1">
+              <span>Read<br>More &gt;</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2: MikroTik PCQ Bandwidth -->
+        <div class="blog-card card-type-2">
+          <div class="blog-content">
+            <h3 class="blog-card-title" data-en="Campus Network Optimization: MikroTik Bandwidth Management using PCQ" data-id="Optimasi Jaringan Kampus: Manajemen Bandwidth MikroTik dengan Metode PCQ">Optimasi Jaringan Kampus: Manajemen Bandwidth MikroTik dengan Metode PCQ</h3>
+            <p class="blog-card-desc" data-en="Technical tips on configuring dynamic bandwidth allocation to automatically segregate Teacher and Student network speeds."
+               data-id="Berbagi tips teknis seputar cara mengatur alokasi bandwidth dinamis untuk memisahkan akses Dosen dan Mahasiswa secara otomatis.">
+               Berbagi tips teknis seputar cara mengatur alokasi bandwidth dinamis untuk memisahkan akses Dosen dan Mahasiswa secara otomatis.
+            </p>
+          </div>
+          <div class="blog-img">
+            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=600" alt="MikroTik Networking" />
+            <a href="javascript:void(0)" class="btn-read-more" data-article="2">
+              <span>Read<br>More &gt;</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3: VPS Linux Deployment -->
+        <div class="blog-card card-type-3">
+          <div class="blog-img blog-img-overlay">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600" alt="Linux VPS Deployment" />
+            <h3 class="blog-card-title overlay-title" data-en="Practical Guide to Deploying Web Applications to Linux VPS" data-id="Panduan Praktis Deployment Aplikasi Web ke VPS Linux">Panduan Praktis Deployment Aplikasi Web ke VPS Linux</h3>
+          </div>
+          <div class="blog-content">
+            <p class="blog-card-desc" data-en="Essential steps in managing Linux servers, configuring academic domains (.ac.id), and server maintenance."
+               data-id="Langkah-langkah esensial dalam mengelola server Linux, konfigurasi domain (.ac.id), hingga pemeliharaan sistem yang andal.">
+               Langkah-langkah esensial dalam mengelola server Linux, konfigurasi domain (.ac.id), hingga pemeliharaan sistem yang andal.
+            </p>
+            <a href="javascript:void(0)" class="btn-read-more" data-article="3">
+              <span>Read<br>More &gt;</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="contact-bg-glow"></div>
+    <div class="container">
+      <div class="section-header">
+        <h1 class="section-title" data-en="Get In Touch" data-id="Hubungi Saya">Get In Touch</h1>
+      </div>
+
+      <div class="contact-grid" data-aos="fade-up" data-aos-delay="100">
+        <!-- Left: Contact Info Cards -->
+        <div class="contact-info-column">
+          <!-- Card 1: Email -->
+          <div class="contact-info-card">
+            <div class="info-card-glow"></div>
+            <div class="info-icon"><i class='bx bx-envelope'></i></div>
+            <div class="info-details">
+              <span class="info-label" data-en="Email Me" data-id="Email Saya">Email Saya</span>
+              <a href="mailto:nanangftx@gmail.com" class="info-value">nanangftx@gmail.com</a>
+            </div>
+          </div>
+
+          <!-- Card 2: WhatsApp -->
+          <div class="contact-info-card">
+            <div class="info-card-glow"></div>
+            <div class="info-icon"><i class='bx bxl-whatsapp'></i></div>
+            <div class="info-details">
+              <span class="info-label" data-en="WhatsApp" data-id="WhatsApp">WhatsApp</span>
+              <a href="https://wa.me/6285140778581" target="_blank" class="info-value">+62 851-4077-8581</a>
+            </div>
+          </div>
+
+          <!-- Card 3: Location -->
+          <div class="contact-info-card">
+            <div class="info-card-glow"></div>
+            <div class="info-icon"><i class='bx bx-map'></i></div>
+            <div class="info-details">
+              <span class="info-label" data-en="Location" data-id="Lokasi">Lokasi</span>
+              <a href="https://maps.google.com/?q=Palu,+Sulawesi+Tengah,+Indonesia" target="_blank" class="info-value">Palu, Sulawesi Tengah, Indonesia</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Modern Glassmorphic Form -->
+        <div class="contact-form-column">
+          <form class="contact-form-new">
+            <div class="form-row-new">
+              <div class="form-field">
+                <input type="text" id="contact-name" placeholder=" " required />
+                <label for="contact-name" data-en="Your Name" data-id="Nama Anda">Nama Anda</label>
+              </div>
+              <div class="form-field">
+                <input type="email" id="contact-email" placeholder=" " required />
+                <label for="contact-email" data-en="Your Email" data-id="Email Anda">Email Anda</label>
+              </div>
+            </div>
+            <div class="form-field">
+              <input type="text" id="contact-subject" placeholder=" " required />
+              <label for="contact-subject" data-en="Subject" data-id="Subjek">Subjek</label>
+            </div>
+            <div class="form-field">
+              <textarea id="contact-message" placeholder=" " required></textarea>
+              <label for="contact-message" data-en="Your Message" data-id="Pesan Anda">Pesan Anda</label>
+            </div>
+
+            <div class="submit-btn-container">
+              <button type="submit" class="btn-submit-new">
+                <span data-en="Send Message" data-id="Kirim Pesan">Kirim Pesan</span>
+                <i class='bx bx-paper-plane'></i>
+              </button>
+              <div class="btn-submit-glow"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-new">
+    <div class="container">
+      <div class="footer-grid-new">
+        <!-- Brand & Tagline -->
+        <div class="footer-brand-side">
+          <a href="#home" class="logo-dribbble footer-brand-logo">
+            <span class="logo-triangle">▲</span>
+            <span class="logo-name">NANANG</span>
+            <span class="logo-dot">•</span>
+            <span class="logo-sub">Web Dev &amp; IT Admin</span>
+          </a>
+          <p class="footer-tagline-new" data-en="Turning complex problems into elegant, high-performance digital solutions."
+            data-id="Mengubah masalah kompleks menjadi solusi digital yang elegan dan berkinerja tinggi.">
+            Mengubah masalah kompleks menjadi solusi digital yang elegan dan berkinerja tinggi.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-links-side">
+          <h4 class="footer-title" data-en="Quick Links" data-id="Tautan Pintas">Tautan Pintas</h4>
+          <ul class="footer-nav">
+            <li><a href="#home" data-en="Home" data-id="Beranda">Home</a></li>
+            <li><a href="#about" data-en="About Me" data-id="Tentang Saya">About Me</a></li>
+            <li><a href="#project" data-en="Projects" data-id="Proyek">Projects</a></li>
+            <li><a href="#blogs" data-en="Blogs" data-id="Blogs">Blogs</a></li>
+            <li><a href="#contact" data-en="Contact" data-id="Kontak">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Social Media / Connect -->
+        <div class="footer-social-side">
+          <h4 class="footer-title" data-en="Connect With Me" data-id="Hubungi Saya">Hubungi Saya</h4>
+          <div class="footer-socials-new">
+            <a href="https://github.com/Nanang-bot" target="_blank" class="social-circle-link github" title="GitHub">
+              <i class='bx bxl-github'></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" class="social-circle-link linkedin" title="LinkedIn">
+              <i class='bx bxl-linkedin'></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" class="social-circle-link instagram" title="Instagram">
+              <i class='bx bxl-instagram'></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright Bottom -->
+      <div class="footer-bottom-new">
+        <p data-en="© 2026 NANANG. All Rights Reserved." data-id="© 2026 NANANG. Seluruh Hak Cipta Dilindungi.">© 2026 NANANG. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Blog Article Modal Popup -->
+  <div id="blog-modal" class="blog-modal-overlay">
+    <div class="blog-modal-card">
+      <button id="blog-modal-close" class="blog-modal-close" aria-label="Close Modal">&times;</button>
+      <div class="blog-modal-header">
+        <span id="modal-tag" class="tech-tag tag-laravel">Web Development</span>
+        <h2 id="modal-title">Judul Artikel</h2>
+        <div class="modal-meta">
+          <span><i class='bx bx-user'></i> Nanang (Web Dev &amp; IT Admin)</span>
+          <span><i class='bx bx-time-five'></i> 5 min read</span>
+        </div>
+      </div>
+      <div id="modal-body" class="blog-modal-body">
+        <!-- Article content dynamically populated by script.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- CV Quick Preview Modal Popup -->
+  <div id="cv-modal" class="cv-modal-overlay">
+    <div class="cv-modal-card">
+      <button id="cv-modal-close" class="cv-modal-close" aria-label="Close CV Modal">&times;</button>
+      
+      <!-- CV Modal Top Action Bar -->
+      <div class="cv-modal-topbar">
+        <div class="cv-badge"><i class='bx bx-file'></i> <span data-en="CURRICULUM VITAE PREVIEW" data-id="PRATINJAU CURRICULUM VITAE">PRATINJAU CURRICULUM VITAE</span></div>
+        <a href="https://drive.google.com/file/d/1J0_M0qNDX9-M64UBsaQg-rWguXk1B9rJ/view?usp=drive_link" target="_blank" class="btn-cv-download">
+          <i class='bx bxl-google-cloud'></i>
+          <span data-en="Download Original PDF" data-id="Buka / Download PDF Original">Buka / Download PDF Original</span>
+        </a>
+      </div>
+
+      <!-- CV Content Sheet -->
+      <div class="cv-sheet">
+        <!-- Header Profile -->
+        <div class="cv-header">
+          <h1 class="cv-name">NANANG, S.Kom</h1>
+          <p class="cv-role" data-en="Junior Web Developer &amp; IT Administrator" data-id="Junior Web Developer &amp; IT Administrator">Junior Web Developer &amp; IT Administrator</p>
+          <div class="cv-contact-row">
+            <span><i class='bx bx-map'></i> Palu, Sulawesi Tengah</span>
+            <span><i class='bx bx-envelope'></i> nanangftx@gmail.com</span>
+            <span><i class='bx bxl-whatsapp'></i> +62 851-4077-8581</span>
+            <span><i class='bx bxl-github'></i> github.com/Nanang-bot</span>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="cv-section">
+          <h3 class="cv-section-title"><i class='bx bx-user-pin'></i> <span data-en="Professional Summary" data-id="Ringkasan Profesional">Ringkasan Profesional</span></h3>
+          <p class="cv-summary-text"
+             data-en="Junior Web Developer and IT Administrator with practical experience in Laravel full-stack web application development and network infrastructure management. Proven track record in optimizing academic laboratory network performance, implementing automated bandwidth queuing (PCQ), and deploying web applications to Linux VPS servers."
+             data-id="Junior Web Developer dan IT Administrator berpengalaman praktis dalam pengembangan aplikasi web full-stack menggunakan Laravel dan manajemen infrastruktur jaringan. Memiliki rekam jejak yang terbukti dalam mengoptimalkan performa jaringan laboratorium akademik, menerapkan manajemen bandwidth otomatis (PCQ), serta melakukan deployment aplikasi pada Virtual Private Server (VPS).">
+            Junior Web Developer dan IT Administrator berpengalaman praktis dalam pengembangan aplikasi web full-stack menggunakan Laravel dan manajemen infrastruktur jaringan. Memiliki rekam jejak yang terbukti dalam mengoptimalkan performa jaringan laboratorium akademik, menerapkan manajemen bandwidth otomatis (PCQ), serta melakukan deployment aplikasi pada Virtual Private Server (VPS).
+          </p>
+        </div>
+
+        <!-- Technical Skills -->
+        <div class="cv-section">
+          <h3 class="cv-section-title"><i class='bx bx-cog'></i> <span data-en="Technical Skills" data-id="Keahlian Teknis">Keahlian Teknis</span></h3>
+          <div class="cv-skills-grid">
+            <div class="cv-skill-item">
+              <strong>Programming &amp; Web:</strong> PHP, JavaScript, SQL, Laravel, Alpine.js, Blade Templates, MySQL
+            </div>
+            <div class="cv-skill-item">
+              <strong>Networking &amp; OS:</strong> MikroTik RouterOS (PCQ Queue, Hotspot, Firewall), Linux Server (Ubuntu/Debian), Windows Server
+            </div>
+            <div class="cv-skill-item">
+              <strong>Tools &amp; Infrastructure:</strong> VPS Management, Domain Admin (.ac.id), Nginx, Git &amp; GitHub, WinBox, Rufus
+            </div>
+          </div>
+        </div>
+
+        <!-- Work Experience -->
+        <div class="cv-section">
+          <h3 class="cv-section-title"><i class='bx bx-briefcase'></i> <span data-en="Work Experience" data-id="Pengalaman Kerja">Pengalaman Kerja</span></h3>
+          <div class="cv-timeline">
+            <div class="cv-timeline-item">
+              <div class="cv-job-header">
+                <h4 class="cv-job-title" data-en="IT Administrator &amp; Web Developer" data-id="IT Administrator &amp; Web Developer">IT Administrator &amp; Web Developer</h4>
+                <span class="cv-job-date">2024 - <span data-en="Present" data-id="Sekarang">Sekarang</span></span>
+              </div>
+              <p class="cv-job-company">Politeknik Cendrawasih Palu</p>
+              <ul class="cv-job-desc">
+                <li data-en="Managing institutional web profile, academic systems, and Linux VPS server deployment."
+                    data-id="Mengelola profil web institusi, sistem akademik, serta deployment server Linux VPS.">
+                  Mengelola profil web institusi, sistem akademik, serta deployment server Linux VPS.
+                </li>
+                <li data-en="Optimizing campus 750 Mbps ISP network bandwidth with MikroTik PCQ dynamic queue allocation."
+                    data-id="Mengoptimalkan bandwidth jaringan kampus ISP 750 Mbps dengan alokasi antrean dinamis PCQ MikroTik.">
+                  Mengoptimalkan bandwidth jaringan kampus ISP 750 Mbps dengan alokasi antrean dinamis PCQ MikroTik.
+                </li>
+                <li data-en="Managing institutional DNS domain transfer and SSL/TLS certificate configurations (.ac.id)."
+                    data-id="Mengelola transfer domain DNS institusi (.ac.id) serta konfigurasi sertifikat SSL/TLS.">
+                  Mengelola transfer domain DNS institusi (.ac.id) serta konfigurasi sertifikat SSL/TLS.
+                </li>
+              </ul>
+            </div>
+
+            <div class="cv-timeline-item">
+              <div class="cv-job-header">
+                <h4 class="cv-job-title" data-en="Freelance Web Developer &amp; Network Engineer" data-id="Freelance Web Developer &amp; Network Engineer">Freelance Web Developer &amp; Network Engineer</h4>
+                <span class="cv-job-date">2022 - <span data-en="Present" data-id="Sekarang">Sekarang</span></span>
+              </div>
+              <p class="cv-job-company">Project-Based / Self-Employed</p>
+              <ul class="cv-job-desc">
+                <li data-en="Built institutional Quality Assurance Service Web App (Laravel &amp; Alpine.js)."
+                    data-id="Membangun Aplikasi Web Layanan Penjaminan Mutu Institusi (Laravel &amp; Alpine.js).">
+                  Membangun Aplikasi Web Layanan Penjaminan Mutu Institusi (Laravel &amp; Alpine.js).
+                </li>
+                <li data-en="Developed E-Library Information System for cataloging and circulation."
+                    data-id="Mengembangkan Sistem Informasi E-Library untuk katalogisasi dan sirkulasi peminjaman.">
+                  Mengembangkan Sistem Informasi E-Library untuk katalogisasi dan sirkulasi peminjaman.
+                </li>
+                <li data-en="Designed campus Wi-Fi infrastructure serving ~400 students with MikroTik &amp; Access Points."
+                    data-id="Merancang infrastruktur Wi-Fi kampus melayani ~400 mahasiswa dengan MikroTik &amp; AP.">
+                  Merancang infrastruktur Wi-Fi kampus melayani ~400 mahasiswa dengan MikroTik &amp; AP.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="cv-section">
+          <h3 class="cv-section-title"><i class='bx bx-book-open'></i> <span data-en="Education" data-id="Pendidikan">Pendidikan</span></h3>
+          <div class="cv-edu-grid">
+            <div class="cv-edu-item">
+              <h4>STMIK Adhi Guna Palu</h4>
+              <p>S.Kom - Teknik Informatika (2019 - 2023)</p>
+            </div>
+            <div class="cv-edu-item">
+              <h4>SMK Negeri 1 Sigi</h4>
+              <p>Teknik Komputer dan Jaringan / TKJ (2016 - 2019)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Back to Top Button -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to Top" title="Back to Top">
+    <i class='bx bx-chevron-up'></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+  </script>
+</body>
+
+</html>
