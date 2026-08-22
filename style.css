@@ -1515,13 +1515,20 @@ body.light-mode .mobile-nav .close {
 
   .works-right {
     width: 100%;
+    max-width: 100%;
+    height: 360px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
+    margin-top: 30px;
   }
 
   .works-collage-wrapper {
-    transform: scale(0.78);
+    transform: scale(0.65);
     transform-origin: center center;
     margin: 0 auto;
+    flex-shrink: 0;
   }
 
   /* Contact & Form */
@@ -1593,10 +1600,16 @@ body.light-mode .mobile-nav .close {
     font-size: 0.72rem;
   }
 
+  .works-right {
+    height: 290px;
+    margin-top: 15px;
+  }
+
   .works-collage-wrapper {
-    transform: scale(0.64);
+    transform: scale(0.52);
     transform-origin: center center;
-    margin: -35px auto -35px auto;
+    margin: 0 auto;
+    flex-shrink: 0;
   }
 
   .blog-card {
