@@ -411,8 +411,8 @@ body.light-mode .theme-toggle i {
 
 .work-steps-row {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
   margin-top: 25px;
 }
 
@@ -1507,7 +1507,7 @@ body.light-mode .mobile-nav .close {
   }
 
   .work-steps-row {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 14px;
   }
 
@@ -1626,6 +1626,15 @@ body.light-mode .mobile-nav .close {
   .blog-card {
     height: auto;
     min-height: 340px;
+  }
+
+  .work-steps-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .step-label {
+    font-size: 0.72rem;
   }
 }
 
