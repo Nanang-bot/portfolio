@@ -1430,12 +1430,21 @@ body.light-mode .mobile-nav .close {
 @media screen and (max-width: 768px) {
   header {
     padding: 0 4%;
-    height: 68px;
+    height: 64px;
   }
 
   .logo-dribbble {
-    font-size: 1.05rem;
+    font-size: 1rem;
     gap: 4px;
+  }
+
+  /* Hide subtitle text — keep only "▲ NANANG" on mobile */
+  .logo-sub {
+    display: none;
+  }
+
+  .header-actions {
+    gap: 8px;
   }
 
   .hero {
@@ -1554,10 +1563,6 @@ body.light-mode .mobile-nav .close {
 
 /* Extra Small Phones (<= 480px) */
 @media screen and (max-width: 480px) {
-  .logo-sub {
-    font-size: 0.72rem;
-  }
-
   .header-actions {
     gap: 6px;
   }
