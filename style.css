@@ -1415,15 +1415,6 @@ body.light-mode .mobile-nav .close {
     justify-content: center;
     overflow: hidden;
   }
-
-  .works-grid-layout {
-    grid-template-columns: 1fr;
-  }
-  
-  .works-right {
-    margin-top: 40px;
-    justify-content: center;
-  }
 }
 
 /* Mobile Screens (<= 768px) */
@@ -1520,37 +1511,6 @@ body.light-mode .mobile-nav .close {
     gap: 14px;
   }
 
-  /* Works Section */
-  .works-section {
-    padding: 70px 0;
-  }
-
-  .works-title {
-    font-size: clamp(2rem, 6.5vw, 2.5rem);
-  }
-
-  .works-desc {
-    font-size: 0.9rem;
-  }
-
-  .works-right {
-    width: 100%;
-    max-width: 100%;
-    height: 360px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    margin-top: 30px;
-  }
-
-  .works-collage-wrapper {
-    transform: scale(0.65);
-    transform-origin: center center;
-    margin: 0 auto;
-    flex-shrink: 0;
-  }
-
   /* Contact & Form */
   .contact-section {
     padding: 70px 0;
@@ -1614,18 +1574,6 @@ body.light-mode .mobile-nav .close {
 
   .circle-skill-card p {
     font-size: 0.72rem;
-  }
-
-  .works-right {
-    height: 290px;
-    margin-top: 15px;
-  }
-
-  .works-collage-wrapper {
-    transform: scale(0.52);
-    transform-origin: center center;
-    margin: 0 auto;
-    flex-shrink: 0;
   }
 
   .blog-card {
@@ -2016,6 +1964,64 @@ body.light-mode .mobile-nav .close {
   background: #ffcc00;
   transform: scale(1.3);
   box-shadow: 0 0 10px rgba(255, 204, 0, 0.6);
+}
+
+/* --- RESPONSIVE MEDIA QUERIES FOR WORKS SECTION --- */
+@media screen and (max-width: 1024px) {
+  .works-grid-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .works-right {
+    margin-top: 40px;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .works-section {
+    padding: 70px 0;
+  }
+
+  .works-title {
+    font-size: clamp(2rem, 6.5vw, 2.5rem);
+  }
+
+  .works-desc {
+    font-size: 0.9rem;
+  }
+
+  .works-right {
+    width: 100%;
+    max-width: 100%;
+    height: 360px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 30px;
+  }
+
+  .works-collage-wrapper {
+    transform: scale(0.65);
+    transform-origin: center center;
+    margin: 0 auto;
+    flex-shrink: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .works-right {
+    height: 290px;
+    margin-top: 15px;
+  }
+
+  .works-collage-wrapper {
+    transform: scale(0.52);
+    transform-origin: center center;
+    margin: 0 auto;
+    flex-shrink: 0;
+  }
 }
 
 
