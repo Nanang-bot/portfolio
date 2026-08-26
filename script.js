@@ -614,7 +614,7 @@ const projectsData = {
       id: "Sistem Layanan Penjaminan Mutu Institusi & E-Library",
       en: "Institutional Quality Assurance & E-Library System"
     },
-    img: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=1000",
+    img: "assets/images/lpm_cendrawasih.png",
     role: "Full-Stack Web Developer",
     body: {
       id: `
@@ -655,7 +655,7 @@ const projectsData = {
       id: "Deployment Server Linux VPS, Nginx Proxy & Domain Admin",
       en: "Linux VPS Deployment, Nginx Reverse Proxy & Domain Admin"
     },
-    img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1000",
+    img: "assets/images/elibrary_cendrawasih.png",
     role: "IT Administrator & DevOps",
     body: {
       id: `
@@ -696,7 +696,7 @@ const projectsData = {
       id: "Optimasi Basis Data Relasional MySQL & Arsitektur Sistem",
       en: "MySQL Relational Database Optimization & System Architecture"
     },
-    img: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&q=80&w=1000",
+    img: "assets/images/portal_lpm.png",
     role: "Database Architect & Developer",
     body: {
       id: `
