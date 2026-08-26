@@ -565,5 +565,234 @@ filterBtns.forEach(btn => {
   });
 });
 
+// --- PROJECT SHOWCASE MODAL LOGIC ---
+const projectsData = {
+  network: {
+    badge: { id: "🌐 Jaringan & Keamanan", en: "🌐 Network & Security" },
+    title: {
+      id: "Manajemen Bandwidth MikroTik PCQ 750 Mbps & Portal Kampus",
+      en: "MikroTik PCQ 750 Mbps Bandwidth Manager & Campus Portal"
+    },
+    img: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=1000",
+    role: "Network Engineer & IT Admin",
+    body: {
+      id: `
+        <h3><i class='bx bx-info-circle'></i> Ringkasan Proyek &amp; Tantangan</h3>
+        <p>Merancang dan mengonfigurasi infrastruktur jaringan kampus melayani <strong>~400 mahasiswa dan staf akademik</strong> dengan total bandwidth ISP <strong>750 Mbps</strong>. Tantangan utama adalah mencegah monopoli bandwidth oleh segelintir user saat penggunaan puncaknya (jam kuliah/laboratorium).</p>
+
+        <h3><i class='bx bx-wrench'></i> Solusi &amp; Teknologi Yang Diterapkan</h3>
+        <ul>
+          <li><strong>MikroTik PCQ (Per Connection Queue):</strong> Membagi alokasi bandwidth secara dinamis dan otomatis presisi sama rata bagi seluruh pengguna aktif tanpa membebani CPU router.</li>
+          <li><strong>Hotspot Login Portal &amp; User Manager:</strong> Sistem otentikasi login berbasis akun pengguna kampus dengan manajemen masa aktif sesi.</li>
+          <li><strong>Firewall Filter &amp; Raw Rules:</strong> Proteksi jaringan dari serangan DDoS, Port Scanning, serta pemblokiran situs bereputasi buruk/malware.</li>
+          <li><strong>Ruijie Cloud Access Point Integration:</strong> Cakupan sinyal Wi-Fi kampus tanpa hambatan (*seamless roaming*).</li>
+        </ul>
+
+        <h3><i class='bx bx-trending-up'></i> Hasil &amp; Dampak Utama</h3>
+        <p>Performa jaringan kampus meningkat drastis dengan penurunan tingkat keluhan ketersediaan koneksi sebesar <strong>90%</strong>. Distribusi bandwidth 750 Mbps berjalan stabil 24/7 tanpa *lag* saat penggunaan bersamaan.</p>
+      `,
+      en: `
+        <h3><i class='bx bx-info-circle'></i> Project Overview &amp; Challenge</h3>
+        <p>Designed and configured campus network infrastructure serving <strong>~400 students and academic staff</strong> with total ISP bandwidth of <strong>750 Mbps</strong>. Main challenge was preventing bandwidth hogs during peak lecture hours.</p>
+
+        <h3><i class='bx bx-wrench'></i> Implemented Solution &amp; Tech Stack</h3>
+        <ul>
+          <li><strong>MikroTik PCQ (Per Connection Queue):</strong> Dynamically and equally distributes bandwidth across all active connections automatically.</li>
+          <li><strong>Hotspot Login Portal &amp; User Manager:</strong> Account-based authentication portal with active session management.</li>
+          <li><strong>Firewall Filter &amp; Raw Rules:</strong> Network security protection against DDoS, Port Scanning, and malicious site blocking.</li>
+          <li><strong>Ruijie Cloud Access Point Integration:</strong> Seamless Wi-Fi coverage across campus buildings.</li>
+        </ul>
+
+        <h3><i class='bx bx-trending-up'></i> Key Results &amp; Impact</h3>
+        <p>Campus network performance drastically improved with a <strong>90% reduction</strong> in connection complaints. 750 Mbps bandwidth allocation runs stably 24/7 during concurrent usage.</p>
+      `
+    }
+  },
+  laravel: {
+    badge: { id: "💻 Laravel Web App", en: "💻 Laravel Web App" },
+    title: {
+      id: "Sistem Layanan Penjaminan Mutu Institusi & E-Library",
+      en: "Institutional Quality Assurance & E-Library System"
+    },
+    img: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=1000",
+    role: "Full-Stack Web Developer",
+    body: {
+      id: `
+        <h3><i class='bx bx-info-circle'></i> Ringkasan Proyek</h3>
+        <p>Mengembangkan aplikasi web penjaminan mutu akademik institusi (SPMI) dan Sistem Informasi E-Library berbasis <strong>Laravel 10</strong> dan <strong>Alpine.js</strong> untuk efisiensi digitalisasi dokumen audit dan perpustakaan.</p>
+
+        <h3><i class='bx bx-wrench'></i> Arsitektur &amp; Fitur Teknis</h3>
+        <ul>
+          <li><strong>Laravel 10 &amp; Blade Templates:</strong> Struktur MVC modular dengan *Clean Code architecture*.</li>
+          <li><strong>Alpine.js Frontend Interactivity:</strong> Pengalaman interaktif tanpa beban berat framework SPA.</li>
+          <li><strong>Role-Based Access Control (RBAC):</strong> Hak akses berlapis untuk Administrator, Dosen, Auditor, dan Mahasiswa.</li>
+          <li><strong>Manajemen Sirkulasi &amp; Katalog PDF:</strong> Pencarian buku instan, e-book reader, dan modul peminjaman online.</li>
+        </ul>
+
+        <h3><i class='bx bx-trending-up'></i> Hasil &amp; Manfaat Institusi</h3>
+        <p>Mempercepat proses audit penjaminan mutu institusi hingga <strong>3x lebih cepat</strong> dan mempermudah akses koleksi e-library bagi seluruh civitas akademika.</p>
+      `,
+      en: `
+        <h3><i class='bx bx-info-circle'></i> Project Overview</h3>
+        <p>Developed institutional Quality Assurance (SPMI) web app and E-Library System powered by <strong>Laravel 10</strong> and <strong>Alpine.js</strong> to digitize audit workflows and library access.</p>
+
+        <h3><i class='bx bx-wrench'></i> Architecture &amp; Technical Features</h3>
+        <ul>
+          <li><strong>Laravel 10 &amp; Blade Templates:</strong> Modular MVC structure built with Clean Code principles.</li>
+          <li><strong>Alpine.js Frontend Interactivity:</strong> Reactive client experience without heavy SPA overhead.</li>
+          <li><strong>Role-Based Access Control (RBAC):</strong> Multi-tier permissions for Administrators, Faculty, Auditors, and Students.</li>
+          <li><strong>Circulation &amp; PDF Catalog Management:</strong> Instant book searching, e-book reader, and online circulation modules.</li>
+        </ul>
+
+        <h3><i class='bx bx-trending-up'></i> Key Impact</h3>
+        <p>Accelerated institutional quality audit process by up to <strong>3x faster</strong> while digitizing academic library access.</p>
+      `
+    }
+  },
+  infra: {
+    badge: { id: "🖥️ Infrastruktur IT", en: "🖥️ IT Infrastructure" },
+    title: {
+      id: "Deployment Server Linux VPS, Nginx Proxy & Domain Admin",
+      en: "Linux VPS Deployment, Nginx Reverse Proxy & Domain Admin"
+    },
+    img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1000",
+    role: "IT Administrator & DevOps",
+    body: {
+      id: `
+        <h3><i class='bx bx-info-circle'></i> Ringkasan Proyek</h3>
+        <p>Mengelola pengalihan domain institusi <strong>.ac.id</strong>, deployment Virtual Private Server (VPS Linux Ubuntu/Debian), dan otomatisasi keamanan sertifikat SSL/TLS.</p>
+
+        <h3><i class='bx bx-wrench'></i> Spesifikasi Server &amp; Konfigurasi</h3>
+        <ul>
+          <li><strong>Linux Ubuntu/Debian VPS:</strong> Konfigurasi dasar server, manajemen user SSH key, hardening firewall UFW.</li>
+          <li><strong>Nginx High-Performance Reverse Proxy:</strong> Melayani lalu lintas request HTTP/HTTPS dengan performa kecepatan tinggi.</li>
+          <li><strong>SSL/TLS HTTPS (Let's Encrypt / Commercial Certs):</strong> Enkripsi komunikasi data 100% aman.</li>
+          <li><strong>DNS Domain Transfer &amp; Admin (.ac.id):</strong> Konfigurasi A Record, CNAME, MX Record, dan propagasi DNS.</li>
+        </ul>
+
+        <h3><i class='bx bx-trending-up'></i> Hasil Utama</h3>
+        <p>Situs profil dan aplikasi web institusi berjalan dengan ketersediaan <strong>99.9% uptime</strong> dan keamanan HTTPS terverifikasi penuh.</p>
+      `,
+      en: `
+        <h3><i class='bx bx-info-circle'></i> Project Overview</h3>
+        <p>Managed institutional <strong>.ac.id</strong> DNS domain migration, Virtual Private Server deployment (Linux Ubuntu/Debian), and automated SSL/TLS HTTPS security.</p>
+
+        <h3><i class='bx bx-wrench'></i> Server Specs &amp; Configurations</h3>
+        <ul>
+          <li><strong>Linux Ubuntu/Debian VPS:</strong> Base server provisioning, SSH key management, UFW firewall hardening.</li>
+          <li><strong>Nginx High-Performance Reverse Proxy:</strong> High-throughput HTTP/HTTPS traffic routing.</li>
+          <li><strong>SSL/TLS HTTPS Certificates:</strong> 100% encrypted data communication protocols.</li>
+          <li><strong>DNS Domain Migration (.ac.id):</strong> A Record, CNAME, MX Record configuration and DNS propagation.</li>
+        </ul>
+
+        <h3><i class='bx bx-trending-up'></i> Key Results</h3>
+        <p>Institutional web profiles and apps run with <strong>99.9% uptime</strong> and fully verified HTTPS security badges.</p>
+      `
+    }
+  },
+  database: {
+    badge: { id: "🗄️ Database & Web", en: "🗄️ Database & Web" },
+    title: {
+      id: "Optimasi Basis Data Relasional MySQL & Arsitektur Sistem",
+      en: "MySQL Relational Database Optimization & System Architecture"
+    },
+    img: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&q=80&w=1000",
+    role: "Database Architect & Developer",
+    body: {
+      id: `
+        <h3><i class='bx bx-info-circle'></i> Ringkasan Proyek</h3>
+        <p>Merancang skema database relasional MySQL yang terstruktur, efisien, dan dinormalisasi untuk sistem data akademik dan dokumen mutu institusi.</p>
+
+        <h3><i class='bx bx-wrench'></i> Pekerjaan Teknis Basis Data</h3>
+        <ul>
+          <li><strong>Relational Database Modeling (ERD):</strong> Perancangan tabel dengan kunci primer/asing (*foreign keys*) yang konsisten.</li>
+          <li><strong>Indexing &amp; Query Optimization:</strong> Mengubah pemrosesan pencarian data besar agar berjalan instan di bawah 50ms.</li>
+          <li><strong>Skema Cadangan (Automated Backup):</strong> Otomatisasi jadwal backup basis data ke penyimpanan aman.</li>
+        </ul>
+
+        <h3><i class='bx bx-trending-up'></i> Hasil Utama</h3>
+        <p>Integritas data terjamin 100% tanpa ada data duplikat, serta kecepatan query data meningkat hingga <strong>2.5x lebih responsif</strong>.</p>
+      `,
+      en: `
+        <h3><i class='bx bx-info-circle'></i> Project Overview</h3>
+        <p>Designed structured, normalized relational MySQL database schemas for institutional academic data and quality document management.</p>
+
+        <h3><i class='bx bx-wrench'></i> Technical Database Engineering</h3>
+        <ul>
+          <li><strong>Relational Database Modeling (ERD):</strong> Schema table design with consistent primary and foreign key constraints.</li>
+          <li><strong>Indexing &amp; Query Optimization:</strong> Speeding up query searches under 50ms for large dataset processing.</li>
+          <li><strong>Automated Data Backup:</strong> Scheduled database backups to secure external storage.</li>
+        </ul>
+
+        <h3><i class='bx bx-trending-up'></i> Key Results</h3>
+        <p>100% data integrity with zero redundancy and up to <strong>2.5x faster query performance</strong> responsiveness.</p>
+      `
+    }
+  }
+};
+
+const projectModal = document.getElementById("project-modal");
+const projectModalClose = document.getElementById("proj-modal-close");
+
+function openProjectModal(key) {
+  const data = projectsData[key] || projectsData.network;
+  const lang = (typeof currentLang !== "undefined") ? currentLang : "id";
+
+  const badgeElem = document.getElementById("proj-modal-badge");
+  const titleElem = document.getElementById("proj-modal-title");
+  const imgElem = document.getElementById("proj-modal-img");
+  const bodyElem = document.getElementById("proj-modal-body");
+
+  if (badgeElem) badgeElem.textContent = data.badge[lang] || data.badge.id;
+  if (titleElem) titleElem.textContent = data.title[lang] || data.title.id;
+  if (imgElem) imgElem.src = data.img;
+  if (bodyElem) bodyElem.innerHTML = data.body[lang] || data.body.id;
+
+  if (projectModal) {
+    projectModal.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+}
+
+function closeProjectModal() {
+  if (projectModal) {
+    projectModal.classList.remove("active");
+    document.body.style.overflow = "auto";
+  }
+}
+
+// Bind click events on Dribbble collage badges & photo cards
+document.addEventListener("click", (e) => {
+  const badgeFrame = e.target.closest(".works-badge-frame");
+  if (badgeFrame) {
+    const cat = badgeFrame.getAttribute("data-category");
+    if (cat) openProjectModal(cat);
+    return;
+  }
+
+  const collageCard = e.target.closest(".collage-card");
+  if (collageCard) {
+    openProjectModal(activeCategoryFilter === "all" ? "network" : activeCategoryFilter);
+  }
+});
+
+if (projectModalClose) {
+  projectModalClose.addEventListener("click", closeProjectModal);
+}
+
+if (projectModal) {
+  projectModal.addEventListener("click", (e) => {
+    if (e.target === projectModal) {
+      closeProjectModal();
+    }
+  });
+}
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && projectModal && projectModal.classList.contains("active")) {
+    closeProjectModal();
+  }
+});
+
 
 
