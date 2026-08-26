@@ -258,6 +258,40 @@
            Kumpulan proyek yang pernah saya kerjakan — mulai dari web app full-stack, desain UI/UX, hingga solusi rekayasa jaringan.
         </p>
 
+        <!-- Category Filter Bar -->
+        <div class="project-filter-bar">
+          <button class="filter-btn active" data-filter="all">
+            <span data-en="All" data-id="Semua">Semua</span>
+          </button>
+          <button class="filter-btn" data-filter="laravel">
+            <i class='bx bxl-laravel'></i> <span>Laravel</span>
+          </button>
+          <button class="filter-btn" data-filter="infra">
+            <i class='bx bx-server'></i> <span>IT Infra</span>
+          </button>
+          <button class="filter-btn" data-filter="database">
+            <i class='bx bx-data'></i> <span>Database</span>
+          </button>
+          <button class="filter-btn" data-filter="network">
+            <i class='bx bx-shield-quarter'></i> <span>Network</span>
+          </button>
+        </div>
+
+        <!-- Dynamic Project Category Spotlight Card -->
+        <div id="project-spotlight" class="project-spotlight-card">
+          <div class="spotlight-header">
+            <span id="spotlight-tag" class="spotlight-tag">⭐ Total Showcase</span>
+            <h3 id="spotlight-title">Kumpulan Proyek Web &amp; IT Administrator</h3>
+          </div>
+          <p id="spotlight-desc">Menampilkan integrasi 12+ proyek pengembangan aplikasi web Laravel, administrasi server Linux VPS, dan optimasi jaringan MikroTik.</p>
+          <div id="spotlight-tags" class="spotlight-tech-tags">
+            <span class="mini-tag">Laravel</span>
+            <span class="mini-tag">MikroTik</span>
+            <span class="mini-tag">Linux VPS</span>
+            <span class="mini-tag">MySQL</span>
+          </div>
+        </div>
+
         <!-- Stats Row -->
         <div class="works-stats-row">
           <div class="works-stat">
@@ -289,28 +323,28 @@
         <div class="works-collage-wrapper">
 
           <!-- Badge 1: IT Infrastructure (Orange/Red) -->
-          <div class="works-badge-frame frame-portfolio">
+          <div class="works-badge-frame frame-portfolio" data-category="infra">
             <div class="works-badge badge-red">
               <i class='bx bx-server'></i> <span data-en="IT Infrastructure" data-id="Infrastruktur IT">Infrastruktur IT</span>
             </div>
           </div>
 
           <!-- Badge 2: Laravel Web App (Purple/Blue) -->
-          <div class="works-badge-frame frame-mobile">
+          <div class="works-badge-frame frame-mobile" data-category="laravel">
             <div class="works-badge badge-purple">
               <i class='bx bx-code-block'></i> <span data-en="Laravel Web App" data-id="Laravel Web App">Laravel Web App</span>
             </div>
           </div>
 
           <!-- Badge 3: Database & Web (Yellow) -->
-          <div class="works-badge-frame frame-assign">
+          <div class="works-badge-frame frame-assign" data-category="database">
             <div class="works-badge badge-yellow">
               <i class='bx bx-data'></i> <span data-en="Database &amp; Web" data-id="Database &amp; Web">Database &amp; Web</span>
             </div>
           </div>
 
           <!-- Badge 4: Network & Security (Cyan) -->
-          <div class="works-badge-frame frame-webapp">
+          <div class="works-badge-frame frame-webapp" data-category="network">
             <div class="works-badge badge-cyan">
               <i class='bx bx-shield-quarter'></i> <span data-en="Network &amp; Security" data-id="Jaringan &amp; Keamanan">Jaringan &amp; Keamanan</span>
             </div>
@@ -545,7 +579,7 @@
         <div class="footer-social-side">
           <h4 class="footer-title" data-en="Connect With Me" data-id="Hubungi Saya">Hubungi Saya</h4>
           <div class="footer-socials-new">
-            <a href="https://github.com/Nanang-bot" target="_blank" class="social-circle-link github" title="GitHub">
+            <a href="https://github.com/Nanang-id" target="_blank" class="social-circle-link github" title="GitHub">
               <i class='bx bxl-github'></i>
             </a>
             <a href="https://linkedin.com" target="_blank" class="social-circle-link linkedin" title="LinkedIn">
@@ -608,7 +642,7 @@
             <span><i class='bx bx-map'></i> Palu, Sulawesi Tengah</span>
             <span><i class='bx bx-envelope'></i> nanangftx@gmail.com</span>
             <span><i class='bx bxl-whatsapp'></i> +62 851-4077-8581</span>
-            <span><i class='bx bxl-github'></i> github.com/Nanang-bot</span>
+            <span><i class='bx bxl-github'></i> github.com/Nanang-id</span>
           </div>
         </div>
 

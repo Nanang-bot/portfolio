@@ -1667,6 +1667,165 @@ body.light-mode .mobile-nav .close {
   max-width: 440px;
 }
 
+/* Category Filter Bar */
+.project-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.filter-btn i {
+  font-size: 0.95rem;
+  color: #00d2ff;
+}
+
+.filter-btn:hover {
+  background: rgba(0, 210, 255, 0.1);
+  border-color: rgba(0, 210, 255, 0.3);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background: linear-gradient(135deg, rgba(0, 210, 255, 0.25) 0%, rgba(59, 130, 246, 0.25) 100%);
+  border-color: #00d2ff;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 210, 255, 0.25);
+}
+
+/* Dynamic Project Category Spotlight Card */
+.project-spotlight-card {
+  background: rgba(9, 13, 31, 0.7);
+  border: 1px solid rgba(0, 210, 255, 0.25);
+  border-radius: 14px;
+  padding: 18px 22px;
+  margin-top: 15px;
+  backdrop-filter: blur(10px);
+  transition: all 0.35s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.spotlight-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.spotlight-tag {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #ffcc00;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.project-spotlight-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.3;
+}
+
+.project-spotlight-card p {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.spotlight-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.mini-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #00d2ff;
+  background: rgba(0, 210, 255, 0.08);
+  border: 1px solid rgba(0, 210, 255, 0.2);
+  padding: 3px 10px;
+  border-radius: 12px;
+}
+
+/* Dimming & Highlighting Collage Badges */
+.works-badge-frame.dimmed {
+  opacity: 0.35;
+  filter: grayscale(40%);
+  transform: scale(0.95);
+  transition: all 0.35s ease;
+}
+
+.works-badge-frame.highlighted {
+  opacity: 1;
+  filter: none;
+  transform: scale(1.08);
+  z-index: 30;
+  transition: all 0.35s ease;
+}
+
+/* Light Mode Overrides for Project Filter */
+body.light-mode .filter-btn {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #475569;
+}
+
+body.light-mode .filter-btn:hover {
+  background: #f1f5f9;
+  border-color: #2563eb;
+  color: #2563eb;
+}
+
+body.light-mode .filter-btn.active {
+  background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+  border-color: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.25);
+}
+
+body.light-mode .filter-btn.active i {
+  color: #ffffff;
+}
+
+body.light-mode .project-spotlight-card {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+body.light-mode .project-spotlight-card h3 {
+  color: #0f172a;
+}
+
+body.light-mode .project-spotlight-card p {
+  color: #475569;
+}
+
+body.light-mode .mini-tag {
+  background: #f0f9ff;
+  border-color: #bae6fd;
+  color: #0284c7;
+}
+
 /* Stats Row */
 .works-stats-row {
   display: flex;

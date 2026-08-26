@@ -89,6 +89,9 @@ langToggle.addEventListener("click", () => {
   currentLang = currentLang === "en" ? "id" : "en";
   localStorage.setItem("lang", currentLang);
   translations.update();
+  if (typeof updateProjectSpotlight === "function") {
+    updateProjectSpotlight(activeCategoryFilter);
+  }
 });
 
 // --- SWIPER SLIDER LOGIC ---
@@ -469,6 +472,98 @@ if (backToTopBtn) {
     });
   });
 }
+
+// --- PROJECT CATEGORY FILTER & SPOTLIGHT LOGIC ---
+const categorySpotlightData = {
+  all: {
+    tag: { id: "⭐ Total Showcase", en: "⭐ Total Showcase" },
+    title: { id: "Kumpulan Proyek Web & IT Administrator", en: "Web & IT Administrator Projects Portfolio" },
+    desc: {
+      id: "Menampilkan integrasi 12+ proyek pengembangan aplikasi web Laravel, administrasi server Linux VPS, dan optimasi jaringan MikroTik.",
+      en: "Showcasing 12+ integrated projects in Laravel web application development, Linux VPS server administration, and MikroTik network optimization."
+    },
+    tags: ["Laravel", "MikroTik", "Linux VPS", "MySQL", "Alpine.js"]
+  },
+  laravel: {
+    tag: { id: "💻 Full-Stack Web Development", en: "💻 Full-Stack Web Development" },
+    title: { id: "Sistem Aplikasi Web Laravel & Academic Systems", en: "Laravel Web Apps & Academic Systems" },
+    desc: {
+      id: "Pengembangan web institusi meliputi Sistem Layanan Penjaminan Mutu (SPMI) dan Sistem E-Library dengan arsitektur Blade, Alpine.js, dan REST API.",
+      en: "Institutional web development including Quality Assurance Service System (SPMI) and E-Library System with Blade, Alpine.js, and REST API."
+    },
+    tags: ["Laravel 10", "Blade Engine", "Alpine.js", "MySQL Relational", "Tailwind/CSS"]
+  },
+  infra: {
+    tag: { id: "🖥️ IT Infrastructure & Linux Server", en: "🖥️ IT Infrastructure & Linux Server" },
+    title: { id: "Manajemen VPS Server & Domain Administrator", en: "VPS Server Management & Domain Admin" },
+    desc: {
+      id: "Deployment web apps ke Linux VPS (Ubuntu/Debian), konfigurasi Nginx Reverse Proxy, SSL/TLS HTTPS, dan pengelolaan domain institusi (.ac.id).",
+      en: "Web app deployment to Linux VPS (Ubuntu/Debian), Nginx Reverse Proxy configuration, SSL/TLS HTTPS, and institutional DNS domain management (.ac.id)."
+    },
+    tags: ["Linux Ubuntu Server", "Nginx Reverse Proxy", "SSL/TLS Certs", "DNS Admin (.ac.id)", "Git Deployment"]
+  },
+  database: {
+    tag: { id: "🗄️ Database Architecture & Design", en: "🗄️ Database Architecture & Design" },
+    title: { id: "Perancangan Basis Data Relasional & Optimasi SQL", en: "Relational Database Design & SQL Tuning" },
+    desc: {
+      id: "Perancangan ERD, indexing basis data MySQL, skema penjaminan mutu, serta optimasi query untuk mendukung performa sistem berefisiensi tinggi.",
+      en: "ERD design, MySQL database indexing, quality assurance schemas, and query tuning to ensure high-performance system execution."
+    },
+    tags: ["MySQL Database", "Relational Schema", "Indexing & Querying", "Data Migration", "Security Backup"]
+  },
+  network: {
+    tag: { id: "🌐 Network Engineering & Security", en: "🌐 Network Engineering & Security" },
+    title: { id: "MikroTik Bandwidth Manager & Security Firewall", en: "MikroTik Bandwidth Manager & Security Firewall" },
+    desc: {
+      id: "Konfigurasi MikroTik RouterOS (PCQ Dynamic Queue 750 Mbps), Hotspot Login Portal melayani ~400 pengguna kampus, serta aturan keamanan Firewall.",
+      en: "MikroTik RouterOS configuration (PCQ Dynamic Queue 750 Mbps), Hotspot Login Portal serving ~400 campus users, and Firewall security rules."
+    },
+    tags: ["MikroTik RouterOS", "PCQ Dynamic Queue", "Hotspot Portal", "Firewall Filter Rules", "Campus Wi-Fi AP"]
+  }
+};
+
+let activeCategoryFilter = "all";
+
+function updateProjectSpotlight(catKey) {
+  activeCategoryFilter = catKey;
+  const data = categorySpotlightData[catKey] || categorySpotlightData.all;
+  const lang = (typeof currentLang !== "undefined") ? currentLang : "id";
+
+  const tagElem = document.getElementById("spotlight-tag");
+  const titleElem = document.getElementById("spotlight-title");
+  const descElem = document.getElementById("spotlight-desc");
+  const tagsElem = document.getElementById("spotlight-tags");
+
+  if (tagElem) tagElem.textContent = data.tag[lang] || data.tag.id;
+  if (titleElem) titleElem.textContent = data.title[lang] || data.title.id;
+  if (descElem) descElem.textContent = data.desc[lang] || data.desc.id;
+  if (tagsElem) {
+    tagsElem.innerHTML = data.tags.map(t => `<span class="mini-tag">${t}</span>`).join("");
+  }
+
+  // Update Collage Badge Highlights
+  const badgeFrames = document.querySelectorAll(".works-badge-frame");
+  badgeFrames.forEach(frame => {
+    const frameCat = frame.getAttribute("data-category");
+    if (catKey === "all" || frameCat === catKey) {
+      frame.classList.remove("dimmed");
+      frame.classList.add("highlighted");
+    } else {
+      frame.classList.add("dimmed");
+      frame.classList.remove("highlighted");
+    }
+  });
+}
+
+const filterBtns = document.querySelectorAll(".project-filter-bar .filter-btn");
+filterBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    filterBtns.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    const cat = btn.getAttribute("data-filter");
+    updateProjectSpotlight(cat);
+  });
+});
 
 
 
