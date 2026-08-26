@@ -655,7 +655,7 @@ const projectsData = {
       id: "Deployment Server Linux VPS, Nginx Proxy & Domain Admin",
       en: "Linux VPS Deployment, Nginx Reverse Proxy & Domain Admin"
     },
-    img: "assets/images/elibrary_cendrawasih.png",
+    img: "assets/images/vps_server.png",
     role: "IT Administrator & DevOps",
     body: {
       id: `
@@ -696,7 +696,7 @@ const projectsData = {
       id: "Optimasi Basis Data Relasional MySQL & Arsitektur Sistem",
       en: "MySQL Relational Database Optimization & System Architecture"
     },
-    img: "assets/images/portal_lpm.png",
+    img: "assets/images/database_mysql.png",
     role: "Database Architect & Developer",
     body: {
       id: `
