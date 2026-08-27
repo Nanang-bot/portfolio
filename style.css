@@ -1843,11 +1843,15 @@ body.light-mode .mini-tag {
 }
 
 .stat-num {
-  font-size: 1.8rem;
+  font-size: 1.15rem;
   font-weight: 800;
-  color: #ffffff;
+  color: #00d2ff;
   font-family: var(--font-heading);
-  line-height: 1;
+  line-height: 1.2;
+}
+
+body.light-mode .stat-num {
+  color: #0284c7;
 }
 
 .stat-label {
